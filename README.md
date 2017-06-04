@@ -6,7 +6,7 @@ For descriptions of the Max#SAT problem and our algorithm, see our AAAI 2017 pap
 
 The solver consists of two Python scripts, which should be placed in the same folder.
 
-* _maxcount.py_: main solver script (requires Python 2.7 for the CryptoMiniSat bindings)
+* _maxcount.py_: main solver script
 * _selfcomposition.py_: utility script to construct self-compositions (requires Python 3; can be used independently)
 
 Additionally your system must have an installation of the CryptoMiniSat Python bindings, available [here](https://github.com/msoos/cryptominisat/).
@@ -17,6 +17,12 @@ In the mean time we provide binaries for several platforms in the _scalmc-binari
 
 Alternatively, older implementations of UniGen2 and ApproxMC2 are available [here](https://bitbucket.org/kuldeepmeel/unigen) and [here](https://bitbucket.org/kuldeepmeel/approxmc) (although not integrated into a single binary).
 
+The _benchmarks_ folder contains benchmarks from our AAAI 2017 paper.
+To test that MaxCount is set up correctly, you can try for example:
+
+    python maxcount.py benchmarks/SyGuS/IssueServiceImpl.dimacs 2
+
+This particular benchmark should take around 30 seconds and return the estimate `1.964 x 2^28` (for reproducibility, MaxCount is deterministic; you can change the random seed with the option `--seed`).
 
 ## Input format
 
