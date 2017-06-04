@@ -7,16 +7,30 @@ For descriptions of the Max#SAT problem and our algorithm, see our AAAI 2017 pap
 The solver consists of two Python scripts, which should be placed in the same folder.
 
 * _maxcount.py_: main solver script
-* _selfcomposition.py_: utility script to construct self-compositions (requires Python 3; can be used independently)
+* _selfcomposition.py_: utility script to construct self-compositions
 
-Additionally your system must have an installation of the CryptoMiniSat Python bindings, available [here](https://github.com/msoos/cryptominisat/).
 
-Finally, the solver expects a binary _scalmc_ present in the same directory implementing the UniGen2 algorithm of Chakraborty, Fremont, Meel, Seshia, and Vardi and the ApproxMC2 algorithm of Chakraborty, Meel, and Vardi.
+### CryptoMiniSat Python bindings
+
+Your system must have an installation of the CryptoMiniSat Python bindings, available [here](https://github.com/msoos/cryptominisat/).
+
+
+### SCALMC binaries
+
+The solver expects a binary _scalmc_ present in the same directory implementing the UniGen2 algorithm of Chakraborty, Fremont, Meel, Seshia, and Vardi and the ApproxMC2 algorithm of Chakraborty, Meel, and Vardi.
 The particular implementation used in our experiments is based on a prototype by Mate Soos and Kuldeep Meel which is pending publication.
 In the mean time we provide binaries for several platforms in the _scalmc-binaries_ folder (if you cannot use any of the available binaries, please contact us).
 
-Alternatively, older implementations of UniGen2 and ApproxMC2 are available [here](https://bitbucket.org/kuldeepmeel/unigen) and [here](https://bitbucket.org/kuldeepmeel/approxmc) (although not integrated into a single binary).
+The binaries are dynamically linked and thus need additional libraries installed. For linux systems try
+`sudo apt-get install libzip-dev libboost-program-options-dev libm4ri-dev`
 
+For OSX systems try `brew install libzip boost homebrew/science/m4ri`
+
+Please let us know if you experience problems with using the provided binaries. 
+
+Alternatively, older implementations of UniGen2 and ApproxMC2 are available [here](https://bitbucket.org/kuldeepmeel/unigen) and [here](https://bitbucket.org/kuldeepmeel/approxmc) (although not integrated into a single binary). 
+
+## Example problems
 The _benchmarks_ folder contains benchmarks from our AAAI 2017 paper.
 To test that MaxCount is set up correctly, you can try for example:
 
