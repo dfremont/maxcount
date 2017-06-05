@@ -208,7 +208,7 @@ if useMultisampling:
 
 def sampleFromSelfComposition():
 	# construct k-fold self-composition
-	os.system('python3 selfcomposition.py '+str(k)+' '+inputFilename+' > '+kfoldFilename)
+	os.system('python selfcomposition.py '+str(k)+' '+inputFilename+' > '+kfoldFilename)
 
 	# generate samples
 	printV(2, 'c Sampling with tolerance (1+%f)... ' % sampleEpsilon, False)
@@ -283,7 +283,7 @@ if len(samples) == 0:
 ### count solutions for each sample
 
 # construct 1-fold self-composition and extract clauses
-os.system('python3 selfcomposition.py 1 '+inputFilename+' > '+onefoldFilename)
+os.system('python selfcomposition.py 1 '+inputFilename+' > '+onefoldFilename)
 
 clauses = []
 with open(onefoldFilename, 'r') as onefoldFile:
