@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 # Usage to get k-fold sc:    ./selfcomposition.py k filename
 

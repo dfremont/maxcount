@@ -21,12 +21,16 @@ The solver expects a binary _scalmc_ present in the same directory implementing 
 The particular implementation used in our experiments is based on a prototype by Mate Soos and Kuldeep Meel which is pending publication.
 In the mean time we provide binaries for several platforms in the _scalmc-binaries_ folder (if you cannot use any of the available binaries, please contact us).
 
-The binaries are dynamically linked and thus need additional libraries installed. For linux systems try
-`sudo apt-get install libzip-dev libboost-program-options-dev libm4ri-dev`
+The binaries are dynamically linked against the _Boost.ProgramOptions_ library.
+To install that, on Linux systems try
 
-For OSX systems try `brew install libzip boost homebrew/science/m4ri`
+    sudo apt-get install libboost-program-options-dev
 
-Please let us know if you experience problems with using the provided binaries. 
+On OS X systems try
+
+    brew install boost
+
+Please let us know if you experience problems when using the provided binaries. 
 
 Alternatively, older implementations of UniGen2 and ApproxMC2 are available [here](https://bitbucket.org/kuldeepmeel/unigen) and [here](https://bitbucket.org/kuldeepmeel/approxmc) (although not integrated into a single binary). 
 
@@ -36,7 +40,7 @@ To test that MaxCount is set up correctly, you can try for example:
 
     python maxcount.py benchmarks/SyGuS/IssueServiceImpl.dimacs 2
 
-This particular benchmark should take around 30 seconds and return the estimate `1.964 x 2^28` (for reproducibility, MaxCount is deterministic; you can change the random seed with the option `--seed`).
+This particular benchmark should take around 30 seconds and return an estimate of `1.964 x 2^28` (for reproducibility, MaxCount is deterministic; you can change the random seed with the option `--seed`).
 
 ## Input format
 

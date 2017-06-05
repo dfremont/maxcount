@@ -165,6 +165,10 @@ try:
 except AttributeError:
 	log2 = lambda x: math.log(x, 2)
 
+# For greater reproducibility, we don't use any of the derived random number
+# generation functions in Python (they've changed before, e.g. in 3.2).
+randbool = lambda: random.random() < 0.5
+
 ### parse formula and extract maximization/counting variables
 
 printV(2, 'c Parsing formula...')
@@ -208,7 +212,7 @@ if useMultisampling:
 
 def sampleFromSelfComposition():
 	# construct k-fold self-composition
-	os.system('python3 selfcomposition.py '+str(k)+' '+inputFilename+' > '+kfoldFilename)
+	os.system('python selfcomposition.py '+str(k)+' '+inputFilename+' > '+kfoldFilename)
 
 	# generate samples
 	printV(2, 'c Sampling with tolerance (1+%f)... ' % sampleEpsilon, False)
@@ -262,7 +266,7 @@ if k == 0:	# sample uniformly from assignments to maximization variables
 	for i in range(numSamples):
 		sample = []
 		for var in maxVars:
-			if random.randint(0, 1) == 0:
+			if randbool():
 				sample.append(var)
 			else:
 				sample.append(-var)
@@ -283,7 +287,7 @@ if len(samples) == 0:
 ### count solutions for each sample
 
 # construct 1-fold self-composition and extract clauses
-os.system('python3 selfcomposition.py 1 '+inputFilename+' > '+onefoldFilename)
+os.system('python selfcomposition.py 1 '+inputFilename+' > '+onefoldFilename)
 
 clauses = []
 with open(onefoldFilename, 'r') as onefoldFile:
@@ -413,7 +417,7 @@ def countSampleWithMonteCarlo(sample, numMCSamples=monteCarloSamples):
 		# generate random assignment to the counting variables
 		assumptions = []
 		for var in countingVars:
-			if random.randint(0, 1) == 0:
+			if randbool():
 				assumptions.append(var)
 			else:
 				assumptions.append(-var)
