@@ -19,18 +19,8 @@ Your system must have an installation of the CryptoMiniSat Python bindings, avai
 
 The solver expects a binary _scalmc_ present in the same directory implementing the UniGen2 algorithm of Chakraborty, Fremont, Meel, Seshia, and Vardi and the ApproxMC2 algorithm of Chakraborty, Meel, and Vardi.
 The particular implementation used in our experiments is based on a prototype by Mate Soos and Kuldeep Meel which is pending publication.
-In the mean time we provide binaries for several platforms in the _scalmc-binaries_ folder (if you cannot use any of the available binaries, please contact us).
-
-The binaries are dynamically linked against the _Boost.ProgramOptions_ library.
-To install that, on Linux systems try
-
-    sudo apt-get install libboost-program-options-dev
-
-On OS X systems try
-
-    brew install boost
-
-Please let us know if you experience problems when using the provided binaries. 
+In the mean time we provide binaries for several platforms in the _scalmc-binaries_ folder.
+If you cannot use any of the available binaries, or experience any other problems, please contact us.
 
 Alternatively, older implementations of UniGen2 and ApproxMC2 are available [here](https://bitbucket.org/kuldeepmeel/unigen) and [here](https://bitbucket.org/kuldeepmeel/approxmc) (although not integrated into a single binary). 
 
